@@ -20,50 +20,15 @@ class OEEStandardController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(OEEStandard $oEEStandard)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(OEEStandard $oEEStandard)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, OEEStandard $oEEStandard)
+    public function update(Request $request, $id)
     {
-        //
-    }
+        $data = $request->all();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(OEEStandard $oEEStandard)
-    {
-        //
+        $item = OEEStandard::findOrFail($id);
+        $item->update($data);
+
+        return redirect()->route('oee-standard.index');
     }
 }
