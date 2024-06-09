@@ -27,7 +27,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/oee-standard" class="nav-link {{ Request::is('oee-standard') ? 'active' : '' }}">
+                    <a href="/oee-summary" class="nav-link {{ Request::is('oee-summary') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-file"></i>
                         <p>OEE Summary</p>
                     </a>
