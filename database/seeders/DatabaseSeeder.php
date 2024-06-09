@@ -38,5 +38,22 @@ class DatabaseSeeder extends Seeder
             'phone' => '9876543210',
             'birthdate' => '1995-05-05',
         ]);
+
+        DB::table('o_e_e_standards')->insert([
+            'name' => 'Availability',
+            'standard' => 90,
+        ]);
+        DB::table('o_e_e_standards')->insert([
+            'name' => 'Performance',
+            'standard' => 95,
+        ]);
+        DB::table('o_e_e_standards')->insert([
+            'name' => 'Quality',
+            'standard' => 98,
+        ]);
+        DB::table('o_e_e_standards')->insert([
+            'name' => 'OEE',
+            'standard' => 85,
+        ]);
     }
 }

@@ -19,7 +19,19 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                {{-- {{ request()->session()->get('user')['name'] }} --}}
+                <li class="nav-header font-weight-bold">OEE</li>
+                <li class="nav-item">
+                    <a href="/oee-standard" class="nav-link {{ Request::is('oee-standard') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-file"></i>
+                        <p>OEE Standard</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/oee-standard" class="nav-link {{ Request::is('oee-standard') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-file"></i>
+                        <p>OEE Summary</p>
+                    </a>
+                </li>
                 @if (request()->session()->get('user')['role'] === 'MANAGER')
                     <li class="nav-header font-weight-bold">Setup</li>
                     <li class="nav-item">
