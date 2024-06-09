@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+    db:
+        image: mysql
+        container_name: ta_data_import_db
+        restart: unless-stopped
+        environment:
+            MYSQL_DATABASE: laravel
+            MYSQL_ROOT_PASSWORD: root
+        ports:
+            - "33065:3306"
+        volumes:
+            - ta_data_import_data:/var/lib/mysql
+
+volumes:
+    ta_data_import_data:
