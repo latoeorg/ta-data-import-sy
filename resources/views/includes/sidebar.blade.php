@@ -3,7 +3,7 @@
     <a href="/" class="brand-link">
         <img src="{{ url('/logo.png') }}" alt="Logo" class="brand-image" />
         <span class="brand-text text-poppins fw-medium">
-            IT INVENTORY
+            SANWA
         </span>
     </a>
 
