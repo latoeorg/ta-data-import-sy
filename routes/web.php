@@ -24,5 +24,8 @@ Route::resource('/', DashboardController::class)->middleware('auth');
 
 Route::resource('/oee-standard', OEEStandardController::class)->middleware('auth');
 Route::resource('/oee-summary', OEESummaryController::class)->middleware('auth');
+Route::post('/oee-summary/import', [OEESummaryController::class, 'import'])
+    ->middleware('auth')
+    ->name('oee-summary.import');
 
 Route::resource('/user', UserController::class)->middleware('auth');

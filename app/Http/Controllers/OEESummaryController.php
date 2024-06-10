@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\OEESummary;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\OEESummaryImport;
+
+use App\Models\OEESummary;
 
 class OEESummaryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $items = OEESummary::all();
@@ -17,6 +17,17 @@ class OEESummaryController extends Controller
         return view('pages.oee-summary.index', [
             'items' => $items,
         ]);
+    }
+
+    public function import(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:xlsx,xls,csv',
+        ]);
+
+        Excel::import(new OEESummaryImport(), $request->file('file'));
+
+        return back()->with('success', 'Data imported successfully!');
     }
 
     /**
