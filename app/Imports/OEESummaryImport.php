@@ -11,6 +11,13 @@ use App\Models\OEESummary;
 
 class OEESummaryImport implements ToCollection
 {
+    protected $date;
+
+    public function __construct($date)
+    {
+        $this->date = $date;
+    }
+
     /**
      * @param Collection $collection
      */
@@ -23,6 +30,8 @@ class OEESummaryImport implements ToCollection
             }
 
             OEESummary::create([
+                'date' => $this->date, // Store the request date here
+
                 'jobOrderID' => $row[1],
                 'productID' => $row[2],
                 'productNAME' => $row[3],

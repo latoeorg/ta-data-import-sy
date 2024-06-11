@@ -12,6 +12,7 @@ return new class extends Migration {
     {
         Schema::create('o_e_e_summaries', function (Blueprint $table) {
             $table->id();
+            $table->string('date')->nullable();
             $table->string('jobOrderID')->nullable();
             $table->string('productID')->nullable();
             $table->string('productNAME')->nullable();

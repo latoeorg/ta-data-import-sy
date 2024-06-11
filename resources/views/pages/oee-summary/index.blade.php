@@ -19,17 +19,19 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{ route('oee-summary.import') }}" method="POST" enctype="multipart/form-data">
+                            {{-- <form action="{{ route('oee-summary.import') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <input type="file" name="file" required>
                                 <button type="submit">Import</button>
-                            </form>
-                            <hr>
-                            <br>
+                            </form> --}}
+                            <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#formCreate"><i
+                                    class="fa fa-plus"></i> Tambah</a>
+                            @include('pages.oee-summary.create')
                             <table id="defaultTable" class="table table-responsive table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>Date</th>
                                         <th>JobOrderID</th>
                                         <th>ProductID</th>
                                         <th>ProductName</th>
@@ -84,6 +86,7 @@
                                     @foreach ($items as $item)
                                         <tr>
                                             <td>{{ $i }}</td>
+                                            <td style="min-width: 100px">{{ $item->date }}</td>
                                             <td>{{ $item->jobOrderID }}</td>
                                             <td>{{ $item->productID }}</td>
                                             <td>{{ $item->productNAME }}</td>

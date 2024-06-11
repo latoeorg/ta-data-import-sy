@@ -23,9 +23,10 @@ class OEESummaryController extends Controller
     {
         $request->validate([
             'file' => 'required|mimes:xlsx,xls,csv',
+            'date' => 'required|date', // Validate the date input
         ]);
 
-        Excel::import(new OEESummaryImport(), $request->file('file'));
+        Excel::import(new OEESummaryImport($request->date), $request->file('file'));
 
         return back()->with('success', 'Data imported successfully!');
     }
