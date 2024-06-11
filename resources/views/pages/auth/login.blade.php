@@ -6,14 +6,16 @@
             <div class="card-body login-card-body">
                 <div class="login-logo">
                     <a href="/">
-                        <img src="{{ url('/logo.png') }}" alt="Logo" width="100" />
+                        <img src="{{ url('/logo-text.png') }}" alt="Logo" width="150" />
                         {{-- <h1 class="font-weight-bold text-primary">Logo</h1> --}}
                     </a>
                 </div>
                 {{-- <h6 class="text-center font-weight-bold">
                     Welcome to the system
                 </h6> --}}
-                <p class="login-box-msg">Masuk untuk memulai sesi Anda</p>
+                <p class="login-box-msg">
+                    Production Efficiency Reporting System OEE
+                </p>
                 <form action="/login" method="post">
                     @csrf
                     <div class="input-group mb-3">
@@ -35,7 +37,7 @@
                     <div class="row justify-content-end">
                         <!-- /.col -->
                         <div class="col-12">
-                            <button type="submit" class="btn bg-navy btn-block">Masuk</button>
+                            <button type="submit" class="btn btn-primary btn-block">Masuk</button>
                         </div>
                         <!-- /.col -->
                     </div>

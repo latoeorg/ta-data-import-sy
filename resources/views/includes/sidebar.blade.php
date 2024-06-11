@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-light-navy border-right">
+<aside class="main-sidebar sidebar-light-primary border-right">
     <!-- Brand Logo -->
     <a href="/" class="brand-link">
         <img src="{{ url('/logo.png') }}" alt="Logo" class="brand-image" />
@@ -21,15 +21,21 @@
                 </li>
                 <li class="nav-header font-weight-bold">OEE</li>
                 <li class="nav-item">
-                    <a href="/oee-standard" class="nav-link {{ Request::is('oee-standard') ? 'active' : '' }}">
+                    <a href="/oee" class="nav-link {{ Request::is('oee') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-file"></i>
-                        <p>OEE Standard</p>
+                        <p>OEE</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="/oee-summary" class="nav-link {{ Request::is('oee-summary') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-file"></i>
                         <p>OEE Summary</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/oee-standard" class="nav-link {{ Request::is('oee-standard') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-file"></i>
+                        <p>OEE Standard</p>
                     </a>
                 </li>
                 @if (request()->session()->get('user')['role'] === 'MANAGER')

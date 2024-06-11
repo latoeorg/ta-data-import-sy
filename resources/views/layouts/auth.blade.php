@@ -2,7 +2,7 @@
 <html lang="en">
 @include('includes.head')
 
-<body class="hold-transition login-page">
+<body class="hold-transition login-page bg-primary">
     @yield('content')
     @include('includes.scripts')
 </body>

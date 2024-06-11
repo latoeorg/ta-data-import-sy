@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 
 use App\Http\Controllers\OEEStandardController;
+use App\Http\Controllers\OEEController;
 use App\Http\Controllers\OEESummaryController;
 
 use App\Http\Controllers\UserController;
@@ -23,9 +24,10 @@ Route::post('/logout', [AuthController::class, 'logout']);
 Route::resource('/', DashboardController::class)->middleware('auth');
 
 Route::resource('/oee-standard', OEEStandardController::class)->middleware('auth');
-Route::resource('/oee-summary', OEESummaryController::class)->middleware('auth');
-Route::post('/oee-summary/import', [OEESummaryController::class, 'import'])
+Route::resource('/oee', OEEController::class)->middleware('auth');
+Route::post('/oee/import', [OEEController::class, 'import'])
     ->middleware('auth')
-    ->name('oee-summary.import');
+    ->name('oee.import');
+Route::resource('/oee-summary', OEESummaryController::class)->middleware('auth');
 
 Route::resource('/user', UserController::class)->middleware('auth');
