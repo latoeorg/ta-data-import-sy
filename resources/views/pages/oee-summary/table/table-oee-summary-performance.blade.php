@@ -23,7 +23,7 @@
                         <td>{{ $item->Output }}</td>
                         <td>{{ $item->ActualCycleTime }}</td>
                         <td>{{ $item->PlanCycleTime }}</td>
-                        <td>{{ $item->Available_Rate }} %</td>
+                        <td>{{ $item->Performance_Rate }} %</td>
                     </tr>
                     <?php $i++; ?>
                 @endforeach
