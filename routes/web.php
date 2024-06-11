@@ -30,6 +30,8 @@ Route::post('/oee/import', [OEEController::class, 'import'])
     ->middleware('auth')
     ->name('oee.import');
 Route::resource('/oee-summary', OEESummaryController::class)->middleware('auth');
-Route::resource('/report', ReportController::class)->middleware('auth');
+
+Route::get('/report-oee', [ReportController::class, 'OEEReport'])->middleware('auth');
+Route::get('/report-downtime', [ReportController::class, 'DowntimeReport'])->middleware('auth');
 
 Route::resource('/user', UserController::class)->middleware('auth');

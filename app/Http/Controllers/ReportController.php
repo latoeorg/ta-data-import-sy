@@ -9,7 +9,7 @@ use App\Models\OEESummaryDate;
 
 class ReportController extends Controller
 {
-    public function index()
+    public function OEEReport()
     {
         $items = OEESummaryDate::all();
 
@@ -39,7 +39,35 @@ class ReportController extends Controller
             $item->OEE = number_format(($item->Available_Rate * $item->Performance_Rate * $item->Quality_Rate) / 10000, 2);
         }
 
-        return view('pages.report.index', [
+        return view('pages.report.oee', [
+            'items' => $items,
+        ]);
+    }
+
+    public function DowntimeReport()
+    {
+        $items = OEESummaryDate::all();
+
+        foreach ($items as $item) {
+            $dataPerMonth = OEESummary::where('date', $item->date);
+
+            $item->Downtime_Total = $dataPerMonth->sum('Downtime_Total');
+            $item->MOC = $dataPerMonth->sum('MOC');
+            $item->T = $dataPerMonth->sum('T');
+            $item->NPO = $dataPerMonth->sum('NPO');
+            $item->PA = $dataPerMonth->sum('PA');
+            $item->MB = $dataPerMonth->sum('MB');
+
+            // change data to percentage by dividing by total downtime
+
+            $item->MOC = number_format(($item->MOC / $item->Downtime_Total) * 10, 1);
+            $item->T = number_format(($item->T / $item->Downtime_Total) * 10, 1);
+            $item->NPO = number_format(($item->NPO / $item->Downtime_Total) * 10, 1);
+            $item->PA = number_format(($item->PA / $item->Downtime_Total) * 10, 1);
+            $item->MB = number_format(($item->MB / $item->Downtime_Total) * 10, 1);
+        }
+
+        return view('pages.report.downtime', [
             'items' => $items,
         ]);
     }

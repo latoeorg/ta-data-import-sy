@@ -39,10 +39,17 @@
                         <p>OEE Standard</p>
                     </a>
                 </li>
+                <li class="nav-header font-weight-bold">Report</li>
                 <li class="nav-item">
-                    <a href="/report" class="nav-link {{ Request::is('report') ? 'active' : '' }}">
+                    <a href="/report-oee" class="nav-link {{ Request::is('report-oee') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-file"></i>
-                        <p>Report</p>
+                        <p>Report OEE</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/report-downtime" class="nav-link {{ Request::is('report-downtime') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-file"></i>
+                        <p>Report Downtime</p>
                     </a>
                 </li>
                 @if (request()->session()->get('user')['role'] === 'MANAGER')
