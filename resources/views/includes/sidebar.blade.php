@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-light-primary border-right">
+<aside class="main-sidebar sidebar-dark-light border-right bg-primary">
     <!-- Brand Logo -->
     <a href="/" class="brand-link">
         <img src="{{ url('/logo.png') }}" alt="Logo" class="brand-image" />
@@ -11,8 +11,9 @@
     <div class="sidebar">
         <!-- Sidebar Menu -->
         <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+            <ul class="nav nav-pills nav-sidebar flex-column nav-flat nav-legacy" data-widget="treeview" role="menu"
                 data-accordion="false">
+                <li class="nav-header font-weight-bold">Menu</li>
                 <li class="nav-item">
                     <a href="/" class="nav-link {{ Request::is('/') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
