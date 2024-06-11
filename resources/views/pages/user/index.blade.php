@@ -30,7 +30,7 @@
                                         <th>Email</th>
                                         <th>Username</th>
                                         <th>Birthdate</th>
-                                        <th>Level</th>
+                                        <th>Role</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>

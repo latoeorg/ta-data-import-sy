@@ -76,7 +76,7 @@ class UserController extends Controller
         }
 
         $item->update($data);
-        return redirect()->route('user.index')->with('success', 'Data successfully updated');
+        return redirect()->route('user.index')->with('success', 'User Data successfully updated');
     }
 
     /**

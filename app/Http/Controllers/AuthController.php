@@ -34,7 +34,7 @@ class AuthController extends Controller
             return redirect('/');
         }
 
-        return back()->with('error', 'Email atau Password salah');
+        return back()->with('error', 'Email or password is wrong');
     }
 
     public function logout(Request $request)
