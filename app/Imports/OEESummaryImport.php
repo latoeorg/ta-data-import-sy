@@ -77,7 +77,7 @@ class OEESummaryImport implements ToCollection
                 'QP' => $row[43],
                 'T' => $row[44],
                 'TPM' => $row[45],
-                'Downtime_Total' => $row[32] + $row[33] + $row[34] + $row[35] + $row[36] + $row[37] + $row[38] + $row[39] + $row[40] + $row[41] + $row[42] + $row[43] + $row[44] + $row[45],
+                'Downtime_Total' => ($row[32] + $row[33] + $row[34] + $row[35] + $row[36] + $row[37] + $row[38] + $row[39] + $row[40] + $row[41] + $row[42] + $row[43] + $row[44] + $row[45]) / 60,
                 'Available_T' => $row[47],
             ]);
         }

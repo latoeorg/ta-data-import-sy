@@ -47,6 +47,7 @@
 <script src="{{ url('/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
 <!-- Toastr -->
 <script src="{{ url('/plugins/toastr/toastr.min.js') }}"></script>
+
 <script>
     $(function() {
         $("#example1").DataTable({
@@ -87,3 +88,85 @@
         $('#date-range').daterangepicker()
     });
 </script>
+
+
+@if (Request::is('/'))
+    <script>
+        $(function() {
+            var labels = {!! json_encode($labels) !!};
+            var data = {!! json_encode($data) !!};
+
+            var areaChartData = {
+                labels: labels,
+                datasets: [{
+                        label: 'OEE',
+                        backgroundColor: 'rgba(75, 192, 192, 0.9)',
+                        borderColor: 'rgba(75, 192, 192, 0.8)',
+                        pointRadius: false,
+                        pointColor: '#4bc0c0',
+                        pointStrokeColor: 'rgba(75, 192, 192, 1)',
+                        pointHighlightFill: '#fff',
+                        pointHighlightStroke: 'rgba(75, 192, 192, 1)',
+                        data: data.OEE
+                    },
+                    {
+                        label: 'Availability Rate',
+                        backgroundColor: 'rgba(255, 159, 64, 1)',
+                        borderColor: 'rgba(255, 159, 64, 1)',
+                        pointRadius: false,
+                        pointColor: 'rgba(255, 159, 64, 1)',
+                        pointStrokeColor: '#ff9f40',
+                        pointHighlightFill: '#fff',
+                        pointHighlightStroke: 'rgba(255, 159, 64, 1)',
+                        data: data.Available_Rate
+                    },
+                    {
+                        label: 'Performance Rate',
+                        backgroundColor: 'rgba(153, 102, 255, 1)',
+                        borderColor: 'rgba(153, 102, 255, 1)',
+                        pointRadius: false,
+                        pointColor: 'rgba(153, 102, 255, 1)',
+                        pointStrokeColor: '#9966ff',
+                        pointHighlightFill: '#fff',
+                        pointHighlightStroke: 'rgba(153, 102, 255, 1)',
+                        data: data.Performance_Rate
+                    },
+                    {
+                        label: 'Quality Rate',
+                        backgroundColor: 'rgba(255, 205, 86, 1)',
+                        borderColor: 'rgba(255, 205, 86, 1)',
+                        pointRadius: false,
+                        pointColor: 'rgba(255, 205, 86, 1)',
+                        pointStrokeColor: '#ffcd56',
+                        pointHighlightFill: '#fff',
+                        pointHighlightStroke: 'rgba(255, 205, 86, 1)',
+                        data: data.Quality_Rate
+                    }
+                ]
+
+            }
+
+            //-------------
+            //- BAR CHART -
+            //-------------
+            var barChartCanvas = $('#barChart').get(0).getContext('2d')
+            var barChartData = $.extend(true, {}, areaChartData)
+            var temp0 = areaChartData.datasets[0]
+            var temp1 = areaChartData.datasets[1]
+            barChartData.datasets[0] = temp1
+            barChartData.datasets[1] = temp0
+
+            var barChartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                datasetFill: false
+            }
+
+            new Chart(barChartCanvas, {
+                type: 'bar',
+                data: barChartData,
+                options: barChartOptions
+            })
+        })
+    </script>
+@endif
