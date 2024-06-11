@@ -38,6 +38,12 @@
                         <p>OEE Standard</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="/report" class="nav-link {{ Request::is('report') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-file"></i>
+                        <p>Report</p>
+                    </a>
+                </li>
                 @if (request()->session()->get('user')['role'] === 'MANAGER')
                     <li class="nav-header font-weight-bold">Setup</li>
                     <li class="nav-item">

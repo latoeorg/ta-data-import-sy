@@ -27,6 +27,7 @@
                                         <th>Available Time</th>
                                         <th>Downtime</th>
                                         <th>Operating Time</th>
+                                        <th>AR</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -35,9 +36,10 @@
                                         <tr>
                                             <td>{{ $i }}</td>
                                             <td style="min-width: 100px">{{ $item->date }}</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>{{ $item->Available_T }}</td>
+                                            <td>{{ $item->Downtime_Total }}</td>
+                                            <td>{{ $item->Operating_Time }}</td>
+                                            <td>{{ $item->Available_Rate }}</td>
                                         </tr>
                                         <?php $i++; ?>
                                     @endforeach
