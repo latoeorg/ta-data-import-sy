@@ -55,7 +55,7 @@
                         Close
                     </button>
                     <button type="submit" class="btn btn-primary">
-                        Simpan
+                        Submit
                     </button>
                 </div>
             </form>

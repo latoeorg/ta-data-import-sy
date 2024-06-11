@@ -2,7 +2,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-        SANWA - Sistem Pelaporan Efisiensi Produksi
+        SANWA - Production Efficiency Reporting System OEE
     </title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url('/apple-touch-icon.png') }}">

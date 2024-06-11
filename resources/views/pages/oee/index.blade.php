@@ -25,7 +25,7 @@
                                 <button type="submit">Import</button>
                             </form> --}}
                             <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#formCreate"><i
-                                    class="fa fa-plus"></i> Tambah</a>
+                                    class="fa fa-plus"></i> Import Data</a>
                             @include('pages.oee.create')
                             <table id="defaultTable" class="table table-responsive table-bordered table-striped">
                                 <thead>

@@ -20,7 +20,7 @@
                     <div class="card">
                         <div class="card-body">
                             <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#formCreate"><i
-                                    class="fa fa-plus"></i> Tambah</a>
+                                    class="fa fa-plus"></i> Add User</a>
                             @include('pages.user.create')
                             <table id="defaultTable" class="table table-bordered table-striped">
                                 <thead>
@@ -31,7 +31,7 @@
                                         <th>Username</th>
                                         <th>Birthdate</th>
                                         <th>Level</th>
-                                        <th>Aksi</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -61,13 +61,13 @@
                                                 <script>
                                                     function handleDelete(id) {
                                                         Swal.fire({
-                                                            title: 'Apakah kamu yakin?',
-                                                            text: "kamu akan menghapus data ini!",
+                                                            title: 'Are you sure?',
+                                                            text: "You won't be able to revert this!",
                                                             icon: 'warning',
                                                             showCancelButton: true,
                                                             confirmButtonColor: '#3085d6',
                                                             cancelButtonColor: '#d33',
-                                                            confirmButtonText: 'Ya, hapus!'
+                                                            confirmButtonText: 'Ya, Delete!',
                                                         }).then((result) => {
                                                             if (result.isConfirmed) {
                                                                 document.getElementById('formDelete' + id).submit();

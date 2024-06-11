@@ -25,7 +25,9 @@
                                         <th>OEE Indicator</th>
                                         <th>Standard Value (%)</th>
                                         <th>Description</th>
-                                        <th>Aksi</th>
+                                        @if (request()->session()->get('user')['role'] === 'MANAGER')
+                                            <th>Action</th>
+                                        @endif
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -35,12 +37,14 @@
                                             <td>{{ $item->name }}</td>
                                             <td>{{ $item->standard }}</td>
                                             <td>{{ $item->description ? $item->description : '-' }}</td>
-                                            <td>
-                                                <a type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#formUpdate{{ $item->id }}">
-                                                    <i class="fa fa-edit" title="Ubah Data User"></i>
-                                                </a>
-                                            </td>
+                                            @if (request()->session()->get('user')['role'] === 'MANAGER')
+                                                <td>
+                                                    <a type="button" class="btn btn-warning" data-toggle="modal"
+                                                        data-target="#formUpdate{{ $item->id }}">
+                                                        <i class="fa fa-edit" title="Ubah Data User"></i>
+                                                    </a>
+                                                </td>
+                                            @endif
                                         </tr>
                                         <?php $i++; ?>
                                         @include('pages.oee-standard.update')

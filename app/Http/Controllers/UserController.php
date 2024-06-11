@@ -33,17 +33,17 @@ class UserController extends Controller
 
         $check_email = User::where('email', $data['email'])->first();
         if ($check_email) {
-            return redirect()->back()->with('error', 'Email sudah terdaftar');
+            return redirect()->back()->with('error', 'Email already registered');
         }
 
         $check_username = User::where('username', $data['username'])->first();
         if ($check_username) {
-            return redirect()->back()->with('error', 'Username sudah terdaftar');
+            return redirect()->back()->with('error', 'Username already registered');
         }
 
         User::create($data);
 
-        return redirect()->route('user.index')->with('success', 'Data berhasil ditambahkan');
+        return redirect()->route('user.index')->with('success', 'Data successfully added');
     }
 
     /**
@@ -64,19 +64,19 @@ class UserController extends Controller
         if ($item->email != $data['email']) {
             $check_email = User::where('email', $data['email'])->first();
             if ($check_email) {
-                return redirect()->back()->with('error', 'Email sudah terdaftar');
+                return redirect()->back()->with('error', 'Email already registered');
             }
         }
 
         if ($item->username != $data['username']) {
             $check_username = User::where('username', $data['username'])->first();
             if ($check_username) {
-                return redirect()->back()->with('error', 'Username sudah terdaftar');
+                return redirect()->back()->with('error', 'Username already registered');
             }
         }
 
         $item->update($data);
-        return redirect()->route('user.index')->with('success', 'Data berhasil diubah');
+        return redirect()->route('user.index')->with('success', 'Data successfully updated');
     }
 
     /**
@@ -86,6 +86,6 @@ class UserController extends Controller
     {
         $item = User::findOrFail($id);
         $item->delete();
-        return redirect()->route('user.index')->with('success', 'Data berhasil dihapus');
+        return redirect()->route('user.index')->with('success', 'Data successfully deleted');
     }
 }
