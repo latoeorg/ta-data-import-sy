@@ -33,5 +33,6 @@ Route::resource('/oee-summary', OEESummaryController::class)->middleware('auth')
 
 Route::get('/report-oee', [ReportController::class, 'OEEReport'])->middleware('auth');
 Route::get('/report-downtime', [ReportController::class, 'DowntimeReport'])->middleware('auth');
+Route::get('/report-reject', [ReportController::class, 'RejectReport'])->middleware('auth');
 
 Route::resource('/user', UserController::class)->middleware('auth');

@@ -52,6 +52,12 @@
                         <p>Report Downtime</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="/report-reject" class="nav-link {{ Request::is('report-reject') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-file"></i>
+                        <p>Report Reject</p>
+                    </a>
+                </li>
                 @if (request()->session()->get('user')['role'] === 'MANAGER')
                     <li class="nav-header font-weight-bold">Setup</li>
                     <li class="nav-item">
