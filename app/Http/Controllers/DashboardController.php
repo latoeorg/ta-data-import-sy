@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\OEEStandard;
 use App\Models\OEESummary;
 use App\Models\OEESummaryDate;
 
@@ -11,6 +12,8 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        $OEEStandard = OEEStandard::all();
+
         $items = OEESummaryDate::all();
 
         foreach ($items as $item) {
@@ -36,7 +39,6 @@ class DashboardController extends Controller
             // OEE
             $item->OEE = number_format($item->Available_Rate * $item->Performance_Rate * $item->Quality_Rate, 2);
         }
-        // create labels and data for chart
 
         $labels = $items->pluck('date');
 
@@ -48,6 +50,7 @@ class DashboardController extends Controller
         ];
 
         return view('pages.dashboard.index', [
+            'OEEStandard' => $OEEStandard,
             'labels' => $labels,
             'data' => $data,
         ]);

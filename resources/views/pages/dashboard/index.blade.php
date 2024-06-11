@@ -13,11 +13,23 @@
     <section class="content font-poppins">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-12">
+                <div class="col-sm-5">
                     <div class="card">
-                        {{-- <div class="card-header">
-                            <h3 class="card-title">Bar Chart</h3>
-                        </div> --}}
+                        <div class="card-body">
+                            <h5>Standard OEE</h5>
+                            <ul>
+                                @foreach ($OEEStandard as $item)
+                                    <li>{{ $item->name }} : {{ $item->standard }} %</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Production Efficiency Reporting System OEE</h3>
+                        </div>
                         <div class="card-body">
                             <div class="chart">
                                 <canvas id="barChart"
