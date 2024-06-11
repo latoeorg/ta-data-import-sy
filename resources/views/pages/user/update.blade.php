@@ -17,28 +17,28 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="name">Full Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Masukan Full Name"
+                        <input type="text" class="form-control" id="name" placeholder="Enter Full Name"
                             name="name" required value="{{ $item->name }}" />
                     </div>
                     <div class="form-group">
                         <label for="birthdate">Birthdate</label>
-                        <input type="date" class="form-control" id="birthdate" placeholder="Masukan Tanggal Lahir"
+                        <input type="date" class="form-control" id="birthdate" placeholder="Enter Birthdate"
                             name="birthdate" value="{{ $item->birthdate }}" />
                     </div>
                     <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" class="form-control" id="email" placeholder="Masukan email address"
+                        <input type="email" class="form-control" id="email" placeholder="Enter email address"
                             name="email" required value="{{ $item->email }}" />
                     </div>
                     <div class="form-group">
                         <label for="username">Username</label>
-                        <input type="text" class="form-control" id="username" placeholder="Masukan username"
+                        <input type="text" class="form-control" id="username" placeholder="Enter username"
                             name="username" required value="{{ $item->username }}" />
                     </div>
                     <div class="form-group">
                         <label for="Password">Password</label>
                         <input type="password" class="form-control" id="Password"
-                            placeholder="Masukan Password untuk update" name="password" />
+                            placeholder="Enter Password (if you want to change)" name="password" />
                     </div>
                     <div class="form-group">
                         <label for="role">Role</label>
