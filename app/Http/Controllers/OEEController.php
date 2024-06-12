@@ -50,6 +50,9 @@ class OEEController extends Controller
 
     public function destroyByDate(Request $request)
     {
+        ini_set('max_execution_time', 3600); // 3600 seconds = 60 minutes
+        set_time_limit(3600);
+
         $date = OEESummaryDate::where('date', $request->date)->first();
         $items = OEESummary::where('date', $request->date)->get();
 
