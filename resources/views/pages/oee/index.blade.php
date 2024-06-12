@@ -27,6 +27,9 @@
                             <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#formCreate"><i
                                     class="fa fa-plus"></i> Import Data</a>
                             @include('pages.oee.create')
+                            <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#formDelete"><i
+                                    class="fa fa-trash"></i> Delete Data</a>
+                            @include('pages.oee.delete')
                             <table id="defaultTable" class="table table-responsive table-bordered table-striped">
                                 <thead>
                                     <tr>
@@ -79,6 +82,7 @@
                                         <th>TPM</th>
                                         <th>DowntimeTotal</th>
                                         <th>AvailableT</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -134,6 +138,36 @@
                                             <td>{{ $item->TPM }}</td>
                                             <td>{{ $item->Downtime_Total }}</td>
                                             <td>{{ $item->Available_T }}</td>
+                                            <td>
+                                                <form id="formDelete{{ $item->id }}"
+                                                    action="{{ route('oee.destroy', $item->id) }}" method="POST"
+                                                    class="d-inline">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <a type="button" class="btn btn-danger"
+                                                        onclick="handleDelete({{ $item->id }})">
+                                                        <i class="fa fa-trash" title="Hapus Data User"></i>
+                                                    </a>
+                                                </form>
+
+                                                <script>
+                                                    function handleDelete(id) {
+                                                        Swal.fire({
+                                                            title: 'Are you sure?',
+                                                            text: "You won't be able to revert this!",
+                                                            icon: 'warning',
+                                                            showCancelButton: true,
+                                                            confirmButtonColor: '#3085d6',
+                                                            cancelButtonColor: '#d33',
+                                                            confirmButtonText: 'Ya, Delete!',
+                                                        }).then((result) => {
+                                                            if (result.isConfirmed) {
+                                                                document.getElementById('formDelete' + id).submit();
+                                                            }
+                                                        })
+                                                    }
+                                                </script>
+                                            </td>
                                         </tr>
                                         <?php $i++; ?>
                                     @endforeach

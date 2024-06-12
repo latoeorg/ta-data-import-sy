@@ -39,4 +39,32 @@ class OEEController extends Controller
 
         return back()->with('success', 'Data imported successfully!');
     }
+
+    public function destroy(string $id)
+    {
+        $item = OEESummary::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('oee.index')->with('success', 'Data successfully deleted');
+    }
+
+    public function destroyByDate(Request $request)
+    {
+        $date = OEESummaryDate::where('date', $request->date)->first();
+        $items = OEESummary::where('date', $request->date)->get();
+
+        // if date null
+
+        if (!$date) {
+            return redirect()->route('oee.index')->with('error', 'Data this month not found');
+        }
+
+        foreach ($items as $item) {
+            $item->delete();
+        }
+
+        $date->delete();
+
+        return redirect()->route('oee.index')->with('success', 'Data successfully deleted');
+    }
 }

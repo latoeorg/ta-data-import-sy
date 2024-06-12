@@ -25,7 +25,12 @@ Route::post('/logout', [AuthController::class, 'logout']);
 Route::resource('/', DashboardController::class)->middleware('auth');
 
 Route::resource('/oee-standard', OEEStandardController::class)->middleware('auth');
+
 Route::resource('/oee', OEEController::class)->middleware('auth');
+Route::post('/oee-by-date', [OEEController::class, 'destroyByDate'])
+    ->middleware('auth')
+    ->name('oee.destroy-by-date');
+
 Route::post('/oee/import', [OEEController::class, 'import'])
     ->middleware('auth')
     ->name('oee.import');
