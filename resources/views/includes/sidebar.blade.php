@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-light border-right bg-primary">
     <!-- Brand Logo -->
-    <a href="/" class="brand-link">
+    <a href="/" class="brand-link bg-primary">
         <img src="{{ url('/logo.png') }}" alt="Logo" class="brand-image" />
         <span class="brand-text text-poppins fw-medium">
             SANWA BATAM

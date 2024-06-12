@@ -2,7 +2,7 @@
 <html lang="en">
 @include('includes.head')
 
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">
     <div class="wrapper">
         @include('includes.preloader') @include('includes.navbar')
         @include('includes.sidebar')
